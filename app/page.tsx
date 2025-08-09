@@ -56,7 +56,7 @@ export default function Page() {
 
       {/* News Section */}
       <section className="pt-40 w-full">
-        <div className="container mx-auto p-7 max-w-7xl bg-secondary rounded-md flex flex-col gap-16">
+        <div className="mx-auto p-7 max-w-7xl bg-secondary rounded-md flex flex-col gap-16">
           <div className="flex flex-col gap-3">
             <div className="flex justify-between items-center mb-8 border-b border-primary/30 py-2">
               <h2 className="text-4xl font-bold text-white">News</h2>
