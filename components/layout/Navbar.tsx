@@ -4,11 +4,11 @@ import Link from "next/link";
 const navItems = [
   {
     label: "Home",
-    href: "#",
+    href: "/",
   },
   {
     label: "About",
-    href: "#",
+    href: "/about",
   },
   {
     label: "Academics",
@@ -16,18 +16,6 @@ const navItems = [
   },
   {
     label: "News & Events",
-    href: "#",
-  },
-  {
-    label: "Research",
-    href: "#",
-  },
-  {
-    label: "Projects",
-    href: "#",
-  },
-  {
-    label: "Library",
     href: "#",
   },
   {
@@ -73,7 +61,7 @@ export default function Navbar() {
         {/* Navigation Menu */}
         <div className="bg-secondary py-4">
           <div className="container mx-auto px-4 max-w-7xl ">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-center gap-12 items-center">
               {navItems.map((item) => (
                 <Link
                   key={item.label}
