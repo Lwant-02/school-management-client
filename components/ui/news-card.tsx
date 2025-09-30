@@ -1,3 +1,4 @@
+import { ChevronsRight } from "lucide-react";
 import Image from "next/image";
 
 interface NewsCardProps {
@@ -16,19 +17,31 @@ export default function NewsCard({
   onReadMore,
 }: NewsCardProps) {
   return (
-    <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-      <div className="relative h-48 bg-gray-200">
-        <Image src={image} alt={title} fill className="object-cover" />
+    <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+      <div className="relative h-48 bg-gray-200 overflow-hidden">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-cover hover:scale-110 transition-transform duration-300"
+        />
       </div>
       <div className="p-6">
-        <h3 className="text-xl font-semibold text-gray-800 mb-2">{title}</h3>
-        <p className="text-sm text-gray-600 mb-2">{date}</p>
-        <p className="text-gray-700 mb-4">{description}</p>
+        <div className="flex justify-between items-start mb-3">
+          <h3 className="text-lg font-semibold text-gray-800 line-clamp-2 flex-1">
+            {title}
+          </h3>
+          <span className="text-sm text-gray-500 ml-2 whitespace-nowrap">
+            {date}
+          </span>
+        </div>
+        <p className="text-gray-600 text-sm mb-4 line-clamp-3">{description}</p>
         <button
           onClick={onReadMore}
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+          className="text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center gap-1 group"
         >
-          Read More
+          See more
+          <ChevronsRight className="size-4" />
         </button>
       </div>
     </div>
