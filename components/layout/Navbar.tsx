@@ -47,6 +47,10 @@ const newsItems = [
     label: "Events",
     href: "/events",
   },
+  {
+    label: "News",
+    href: "/news",
+  },
 ];
 
 export default function Navbar() {
@@ -104,12 +108,11 @@ export default function Navbar() {
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="bg-primary rounded-xs mt-4 border border-secondary/20 ">
                     {academicItems.map((item) => (
-                      <DropdownMenuItem
-                        key={item.label}
-                        className="cursor-pointer hover:text-blue-300 text-secondary font-medium"
-                      >
-                        <Link href={item.href}>{item.label}</Link>
-                      </DropdownMenuItem>
+                      <Link href={item.href} key={item.label}>
+                        <DropdownMenuItem className="cursor-pointer hover:text-blue-300 text-secondary font-medium">
+                          {item.label}
+                        </DropdownMenuItem>
+                      </Link>
                     ))}
                   </DropdownMenuContent>
                 </DropdownMenu>
@@ -120,12 +123,11 @@ export default function Navbar() {
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="bg-primary rounded-xs mt-4 border border-secondary/20 ">
                     {newsItems.map((item) => (
-                      <DropdownMenuItem
-                        key={item.label}
-                        className="cursor-pointer hover:text-blue-300 text-secondary font-medium"
-                      >
-                        <Link href={item.href}>{item.label}</Link>
-                      </DropdownMenuItem>
+                      <Link href={item.href} key={item.label}>
+                        <DropdownMenuItem className="cursor-pointer hover:text-blue-300 text-secondary font-medium">
+                          {item.label}
+                        </DropdownMenuItem>
+                      </Link>
                     ))}
                   </DropdownMenuContent>
                 </DropdownMenu>

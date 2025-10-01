@@ -3,11 +3,13 @@ import { ChevronsRight } from "lucide-react";
 interface NavigationHintProps {
   parentPath: string;
   currentPath: string;
+  nestedPath?: string;
 }
 
 export const NavigationHint = ({
   parentPath,
   currentPath,
+  nestedPath,
 }: NavigationHintProps) => {
   return (
     <div className="flex justify-start items-center gap-1">
@@ -16,6 +18,12 @@ export const NavigationHint = ({
       <p className="text-sm text-gray-500">{parentPath}</p>
       <ChevronsRight className="size-4 text-gray-500" />
       <p className="text-sm text-secondary">{currentPath}</p>
+      {nestedPath && (
+        <>
+          <ChevronsRight className="size-4 text-gray-500" />
+          <p className="text-sm text-secondary">{nestedPath}</p>
+        </>
+      )}
     </div>
   );
 };
