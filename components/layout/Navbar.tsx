@@ -87,7 +87,7 @@ export default function Navbar() {
               </span>
             </div>
             <div className="container mx-auto px-4 max-w-7xl ">
-              <div className="flex justify-center gap-12 items-center ">
+              <div className="flex justify-end gap-12 items-center ">
                 {navItems.map((item) => (
                   <Link
                     key={item.label}
