@@ -1,6 +1,9 @@
 import { NavigationHint } from "@/components/navigation-hint";
+import { Spinner } from "@/components/spinner";
 import { SubjectCard } from "@/components/subject-card";
+import { SubjectGrids } from "@/components/subject-grids";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Subjects | School Management System",
@@ -17,87 +20,18 @@ export default function SubjectsPage() {
 
       <div className="flex flex-col gap-5 max-w-7xl mx-auto mb-20">
         <div className="relative">
-          <p className="text-sm text-gray-500">First Year</p>
-          <span className="h-[1px] absolute bottom-0 left-0 bg-gray-500/80 w-14" />
-        </div>
-        <div className="grid grid-cols-6 gap-6">
-          <SubjectCard />
-          <SubjectCard />
-          <SubjectCard />
-          <SubjectCard />
-          <SubjectCard />
-          <SubjectCard />
-        </div>
-      </div>
-      <div className="flex flex-col gap-5 max-w-7xl mx-auto mb-20">
-        <div className="relative">
-          <p className="text-sm text-gray-500">Second Year</p>
+          <p className="text-sm text-gray-500">All Subjects</p>
           <span className="h-[1px] absolute bottom-0 left-0 bg-gray-500/80 w-20" />
         </div>
-        <div className="grid grid-cols-6 gap-6">
-          <SubjectCard />
-          <SubjectCard />
-          <SubjectCard />
-          <SubjectCard />
-          <SubjectCard />
-          <SubjectCard />
-        </div>
-      </div>
-      <div className="flex flex-col gap-5 max-w-7xl mx-auto mb-10">
-        <div className="relative">
-          <p className="text-sm text-gray-500">Third Year</p>
-          <span className="h-[1px] absolute bottom-0 left-0 bg-gray-500/80 w-16" />
-        </div>
-        <div className="grid grid-cols-6 gap-6">
-          <SubjectCard />
-          <SubjectCard />
-          <SubjectCard />
-          <SubjectCard />
-          <SubjectCard />
-          <SubjectCard />
-        </div>
-      </div>
-      <div className="flex flex-col gap-5 max-w-7xl mx-auto mb-10">
-        <div className="relative">
-          <p className="text-sm text-gray-500">Fourth Year</p>
-          <span className="h-[1px] absolute bottom-0 left-0 bg-gray-500/80 w-16" />
-        </div>
-        <div className="grid grid-cols-6 gap-6">
-          <SubjectCard />
-          <SubjectCard />
-          <SubjectCard />
-          <SubjectCard />
-          <SubjectCard />
-          <SubjectCard />
-        </div>
-      </div>
-      <div className="flex flex-col gap-5 max-w-7xl mx-auto mb-10">
-        <div className="relative">
-          <p className="text-sm text-gray-500">Fifth Year</p>
-          <span className="h-[1px] absolute bottom-0 left-0 bg-gray-500/80 w-16" />
-        </div>
-        <div className="grid grid-cols-6 gap-6">
-          <SubjectCard />
-          <SubjectCard />
-          <SubjectCard />
-          <SubjectCard />
-          <SubjectCard />
-          <SubjectCard />
-        </div>
-      </div>
-      <div className="flex flex-col gap-5 max-w-7xl mx-auto mb-10">
-        <div className="relative">
-          <p className="text-sm text-gray-500">Final Year</p>
-          <span className="h-[1px] absolute bottom-0 left-0 bg-gray-500/80 w-16" />
-        </div>
-        <div className="grid grid-cols-6 gap-6">
-          <SubjectCard />
-          <SubjectCard />
-          <SubjectCard />
-          <SubjectCard />
-          <SubjectCard />
-          <SubjectCard />
-        </div>
+        <Suspense
+          fallback={
+            <div className="flex justify-center items-center h-96">
+              <Spinner className="size-10 text-secondary" />
+            </div>
+          }
+        >
+          <SubjectGrids />
+        </Suspense>
       </div>
     </div>
   );
