@@ -1,8 +1,8 @@
-import { EventCard } from "@/components/event-card";
-import { LabCard } from "@/components/lab-card";
+import { EventsGrids } from "@/components/events-grids";
 import { NavigationHint } from "@/components/navigation-hint";
-import { NewCard } from "@/components/new-card";
+import { Spinner } from "@/components/spinner";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: " Event | School Management System",
@@ -18,14 +18,15 @@ export default function EventPage() {
       </div>
 
       <div className="flex flex-col gap-5 max-w-7xl mx-auto mb-20">
-        <div className="grid grid-cols-3 gap-6">
-          <EventCard />
-          <EventCard />
-          <EventCard />
-          <EventCard />
-          <EventCard />
-          <EventCard />
-        </div>
+        <Suspense
+          fallback={
+            <div className="flex justify-center items-center h-96">
+              <Spinner className="size-10 text-secondary" />
+            </div>
+          }
+        >
+          <EventsGrids />
+        </Suspense>
       </div>
     </div>
   );
