@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Hero from "@/components/ui/hero";
 import NewsCard from "@/components/ui/news-card";
 import Footer from "@/components/ui/footer";
@@ -6,36 +6,14 @@ import Map from "@/components/ui/map";
 import ImageGallery from "@/components/ui/image-gallery";
 import Link from "next/link";
 import { ChevronsRight } from "lucide-react";
+import { EventsGrids } from "@/components/events-grids";
+import { Spinner } from "@/components/spinner";
 
-export default function Page() {
+export default async function Page() {
   const newsData = [
     {
       image: "/images/sample.jpg",
       title: "2024 Graduation Ceremony",
-      date: "16 FEB",
-      description:
-        "Our heartiest commends (sic). Best from our teachers and all the best.",
-    },
-    {
-      image: "/images/sample.jpg",
-      title: "2024 Graduation Ceremony",
-      date: "16 FEB",
-      description:
-        "Our heartiest commends (sic). Best from our teachers and all the best.",
-    },
-    {
-      image: "/images/sample.jpg",
-      title: "2024 Graduation Ceremony",
-      date: "16 FEB",
-      description:
-        "Our heartiest commends (sic). Best from our teachers and all the best.",
-    },
-  ];
-
-  const eventsData = [
-    {
-      image: "/images/sample.jpg",
-      title: "2024 Football Competition",
       date: "16 FEB",
       description:
         "Our heartiest commends (sic). Best from our teachers and all the best.",
@@ -95,11 +73,15 @@ export default function Page() {
               <ChevronsRight className="size-4" />
             </Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {eventsData.map((event, index) => (
-              <NewsCard key={index} {...event} />
-            ))}
-          </div>
+          <Suspense
+            fallback={
+              <div className="flex justify-center items-center h-96">
+                <Spinner className="size-10 text-secondary" />
+              </div>
+            }
+          >
+            <EventsGrids />
+          </Suspense>
         </div>
       </section>
 
