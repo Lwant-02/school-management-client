@@ -30,7 +30,8 @@ export const EventCard = ({
       </div>
       <p className="text-xs mt-2 text-gray-500 line-clamp-2">{description}</p>
       <Link
-        href="/events/1"
+        // href="/events/1"
+        href="#"
         className="flex gap-2 mt-3 text-secondary justify-start items-center"
       >
         See more
