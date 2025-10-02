@@ -1,6 +1,8 @@
 import { NavigationHint } from "@/components/navigation-hint";
-import { TeacherCard } from "@/components/teacher-card";
+import { Spinner } from "@/components/spinner";
+import { TeacherGrids } from "@/components/teacher-grids";
 import { Metadata } from "next/types";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Teachers | School Management System",
@@ -20,26 +22,15 @@ export default function TeachersPage() {
           <p className="text-sm text-gray-500">Professor</p>
           <span className="h-[1px] absolute bottom-0 left-0 bg-gray-500/80 w-14" />
         </div>
-        <div className="grid grid-cols-5 gap-6">
-          <TeacherCard />
-          <TeacherCard />
-          <TeacherCard />
-          <TeacherCard />
-          <TeacherCard />
-        </div>
-      </div>
-      <div className="flex flex-col gap-5 max-w-7xl mx-auto mb-20">
-        <div className="relative">
-          <p className="text-sm text-gray-500">Vice Professor</p>
-          <span className="h-[1px] absolute bottom-0 left-0 bg-gray-500/80 w-14" />
-        </div>
-        <div className="grid grid-cols-5 gap-6">
-          <TeacherCard />
-          <TeacherCard />
-          <TeacherCard />
-          <TeacherCard />
-          <TeacherCard />
-        </div>
+        <Suspense
+          fallback={
+            <div className="flex justify-center items-center h-96">
+              <Spinner className="size-10 text-secondary" />
+            </div>
+          }
+        >
+          <TeacherGrids />
+        </Suspense>
       </div>
     </div>
   );
